@@ -22,7 +22,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 
 
-Route::middleware(['auth:sanctum'])->group(function  (){
+Route::middleware(['auth:sanctum'])->group(function(){
 
     Route::get('/news',[NewsController::class,'index']);
     Route::post('/news',[NewsController::class,'store']);

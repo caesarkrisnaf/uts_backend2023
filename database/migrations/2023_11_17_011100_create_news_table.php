@@ -20,7 +20,7 @@ return new class extends Migration
             $table->text('content');
             $table->string('url');
             $table->string('url_image');
-            $table->datetime('published_at')->default(DB::raw('CURRENT_TIMESTAMP'));
+            $table->datetime('published_at')->default(DB::raw('CURRENT_TIMESTAMP'))->nullable();
             $table->string('category');
             $table->timestamps('');
         });

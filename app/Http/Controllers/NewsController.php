@@ -31,25 +31,35 @@ class NewsController extends Controller
   
     public function store(Request $request)
     {
-        $input = $request->validate ([
-            'title' =>'required',
-            'author' => 'required',
-            'description' => 'required',
-            'content' => 'required',
-            'url' => 'required',
-            'url_image' => 'required',
-            'published_at' => 'nullable',
-            'category' => 'required'
-        ]);
+        // $input =  $request->validate([
+        //     'title' => 'required',
+        //     'author' => 'required',
+        //     'description' => 'required',
+        //     'content' => 'required',
+        //     'url' => 'required',
+        //     'url_image' => 'required',
+        //     'published_at' => 'nullable',
+        //     'category' => 'required'
+        // ]);
 
-        $news = News::create($input);
+        $input = [
+            "title" => $request->title,
+            "author" => $request->author,
+            "description" => $request->description,
+            "content" => $request->content,
+            "url" => $request->url,
+            "url_image" => $request->url_image,
+            "category" => $request->category
+        ];
 
-        $response = [
-			'message' => 'Data Berita Berhasil Dibuat',
-			'data' => $news,
-		];
+       $news = News::create($input);
 
-        return response()->json($response, 201);
+       $response = [
+           'message' => 'Data Berita Berhasil Dibuat',
+           'data' => $news,
+       ];
+
+       return response()->json($response, 201);
     }
 
     /**
