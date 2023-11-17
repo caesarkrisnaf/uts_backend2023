@@ -95,7 +95,7 @@ class NewsController extends Controller
         $news = News::find($id);
         if ($news) {
             $response = [
-                'message' => 'Student is updated',
+                'message' => ' News is updated',
 				'data' => $news->update($request->all())
             ];
 
